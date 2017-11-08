@@ -14,7 +14,7 @@
             <h1> Welcome to Songify </h1>
             <h3> Enter name to access your account </h3>
             <div class="input-wrapper">
-                <input type="text" placeholder="Name" id="name-input">
+                <input type="text" placeholder="Name" id="name-input" value="Tabish">
                 <button> Go </button>
             </div>
         </section>
@@ -27,7 +27,7 @@
 		</div>
         <footer> 
         <div class="controls">
-        <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+        <i class="fa fa-car clickable play-icon" aria-hidden="true"></i>
         </div>
         </footer>
         </div>
@@ -48,6 +48,38 @@ $('.welcome-screen button').on('click', function() {
 	$('#name-input').addClass('error');
 	}
 });
+  $('.play-icon').on('click', function(){
+  var song = document.querySelector('audio');
+  if (song.paused== true){
+  song.play();
+  $('.play-icon').removeClass('fa-car');
+  $('.play-icon').addClass('fa-pause');
+  
+  }
+  else{
+  song.pause();
+  $('.play-icon').addClass('fa-car');
+  $('.play-icon').removeClass('fa-pause');
+  }
+});
+
+  $('body').on('keypress',function(event) {
+        if (event)
+          {
+			var song = document.querySelector('audio');
+			if (song.paused== true){
+				song.play();
+				$('.play-icon').removeClass('fa-play');
+				$('.play-icon').addClass('fa-pause');
+		   }
+		else{
+				song.pause();
+				$('.play-icon').addClass('fa-play');
+				$('.play-icon').removeClass('fa-pause');
+		}
+          }
+      }); 
+
 </script>
 </body>
 
